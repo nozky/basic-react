@@ -6,20 +6,34 @@ import React,{ useState, useEffect } from 'react';
 
 function App() {
 
+  // hooks useState
   const [lists, setLists] = useState([])
   const [message, setMessage] = useState('')
 
 
+  //function to handle input text, "e" is event, please learn about event in javascript
   const inputMessageHandle =(e)=>{
     setMessage(e.target.value)
   }
 
+  //function to add note to lists
   const addToNote =()=>{
+    if(!message) return
     setLists((prevState)=> ([...prevState, message]))
+    setMessage('')
   }
 
+  //hooks useEffect
+  //test the effect , "[]" means no dependency, it only run during component mount. 
+  // you can try 
+  useEffect(()=>{ console.count('effect - no dependency') },[])
 
-  useEffect(()=>{ console.count('effect') })
+  //This one has dependency, it gonna trigger when "lists" state is change.
+  useEffect(()=>{ console.count('effect with list dependency') },[lists])
+
+  // this will trigger everytime if any state change
+  useEffect(()=>{ console.count('effect - every time') })
+
 
   return (
 

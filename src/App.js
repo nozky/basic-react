@@ -1,8 +1,8 @@
 
-import './App.css';
 import React,{ useState, useEffect } from 'react';
+import './App.css';
 
-
+import Timer from './components/Timer' 
 
 function App() {
 
@@ -61,9 +61,12 @@ function App() {
       <input className='input' type="text" placeholder='Enter Note' onChange={(e)=>{ inputMessageHandle(e) }} />
     </div>
 
+    <div className="underline"></div>
+    <Timer />      
+
     <footer>
-        <p>2021 React Practice Project</p>
-      </footer>
+      <p>2021 React Practice Project</p>
+    </footer>
     </>
 
   );

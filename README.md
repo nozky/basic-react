@@ -1,6 +1,9 @@
 # Simple React App
+---
+
+### Tutorial
 
 ---
-### Author
+#### Author
 Norvillie Villaruel
 Full Stack Dev 2021

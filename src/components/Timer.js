@@ -31,11 +31,10 @@ function Timer({sec}) {
     } 
 
     if(second >=60 ){
-      setHours(prev => hours + 1)
-      setMinute(0)
-      setSecond(0)
+      setHours(h => h + 1)
+      setMinute(m => m = 0)
+      setSecond(s => s = 0)
     }
-
   },[second])
 
   console.log(cron)

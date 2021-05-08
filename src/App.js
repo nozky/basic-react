@@ -19,8 +19,16 @@ function App() {
   //function to add note to lists
   const addToNote =()=>{
     if(!message) return
-    setLists((prevState)=> ([...prevState, message]))
+    setLists((prevState)=> ([...prevState, {id: new Date().getTime().toString(), message}]))
     setMessage('')
+  }
+
+  const removeFromList =(id)=>{
+    const newData = lists.filter((item)=>{
+      return (id !== item.id)
+    })
+
+    setLists(newData)
   }
 
   //hooks useEffect
@@ -34,7 +42,7 @@ function App() {
   // this will trigger everytime if any state change
   useEffect(()=>{ console.count('effect - every time') })
 
-
+  console.log(lists)
   return (
 
     <>
@@ -46,11 +54,18 @@ function App() {
     <div className="main-wrapper">
      
       <main>
-        <h5>List of notes</h5>
+        <h5 className='center-div'>List of notes</h5>
         <ul className='list-items'>
           {/* dynamic content */}
-          {lists.map((note,index)=> {
-            return <li key={index} className='list-item'>{note}</li>
+          {lists.map((note)=> {
+            return (
+              <>
+                <li key={note.id} className='list-item'>
+                  ID: {note.id} -->  Messages: {note.message} 
+                  <button className='list-btn' onClick={()=> removeFromList(note.id)}>Delete</button>
+                </li>
+              </>
+            )
           })}
         </ul>
       </main>
@@ -58,7 +73,7 @@ function App() {
 
     <div className="btn-container">
       <button className='btn' onClick={()=>{ addToNote() }}>Add</button>
-      <input className='input' type="text" placeholder='Enter Note' onChange={(e)=>{ inputMessageHandle(e) }} />
+      <input className='input' type="text" placeholder='Enter Note' value={message} onChange={(e)=>{ inputMessageHandle(e) }}  />
     </div>
 
     <div className="underline"></div>

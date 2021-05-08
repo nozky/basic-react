@@ -61,7 +61,7 @@ function App() {
             return (
               <>
                 <li key={note.id} className='list-item'>
-                  ID: {note.id} -->  Messages: {note.message} 
+                  ID: {note.id} --  Messages: {note.message} 
                   <button className='list-btn' onClick={()=> removeFromList(note.id)}>Delete</button>
                 </li>
               </>

@@ -41,7 +41,7 @@ main{
 footer{
   display: flex;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   padding: 0.5em;
   background-color: gray;

@@ -4,6 +4,7 @@ import './App.css';
 
 import Timer from './components/Timer' 
 
+
 function App() {
 
   // hooks useState
@@ -77,7 +78,8 @@ function App() {
     </div>
 
     <div className="underline"></div>
-    <Timer />      
+    <Timer />  
+   
 
     <footer>
       <p>2021 React Practice Project</p>
